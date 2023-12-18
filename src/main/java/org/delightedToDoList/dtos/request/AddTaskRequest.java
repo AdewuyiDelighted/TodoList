@@ -1,2 +1,9 @@
-package org.delightedToDoList.dtos.request;public class AddTaskRequest {
+package org.delightedToDoList.dtos.request;
+
+import lombok.Data;
+
+@Data
+public class AddTaskRequest {
+    private String username;
+    private  String description;
 }

@@ -1,2 +1,9 @@
-package org.delightedToDoList.dtos.request;public class LoginRequest {
+package org.delightedToDoList.dtos.request;
+
+import lombok.Data;
+
+@Data
+public class LoginRequest {
+    private String username;
+    private String password;
 }
