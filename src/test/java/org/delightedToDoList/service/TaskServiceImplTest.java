@@ -41,7 +41,7 @@ class TaskServiceImplTest {
         loginRequest.setPassword("delighted");
         loginRequest.setPassword("password");
         toDoListService.login(loginRequest);
-        taskService.createTask("wash plate",todoList.getId());
+        taskService.createTask("my personal errand","Wash plate",todoList.getId());
         System.out.println(todoList.getId());
         assertEquals(1,taskRepository.count());
 
@@ -57,7 +57,7 @@ class TaskServiceImplTest {
         loginRequest.setPassword("delighted");
         loginRequest.setPassword("password");
         toDoListService.login(loginRequest);
-        Task task = taskService.createTask("wash cloth",todoList.getId());
+        Task task = taskService.createTask("my personal task","Sweep the room",todoList.getId());
         assertEquals(1,taskRepository.count());
         taskService.updateTask("go to school",task.getId());
         assertEquals(1,taskRepository.count());
@@ -72,9 +72,9 @@ class TaskServiceImplTest {
         loginRequest.setPassword("delighted");
         loginRequest.setPassword("password");
         TodoList todoList = toDoListService.login(loginRequest);
-        Task task1 = taskService.createTask("wash cloth",todoList.getId());
-        Task task2 = taskService.createTask("watch movie",todoList.getId());
-        assertEquals(2,taskService.findAll().size());
+        Task task1 = taskService.createTask("School work","Do assignment",todoList.getId());
+        Task task2 = taskService.createTask("Church work","choir pratice",todoList.getId());
+        assertEquals(2,taskRepository.count());
     }
     @Test
     public void findTaskByIdTest(){
@@ -86,8 +86,8 @@ class TaskServiceImplTest {
         loginRequest.setPassword("delighted");
         loginRequest.setPassword("password");
         TodoList todoList = toDoListService.login(loginRequest);
-        Task task1 = taskService.createTask("make dinner",todoList.getId());
-        Task task2 = taskService.createTask("Lay bed",todoList.getId());
+        Task task1 = taskService.createTask("School work","Go to school",todoList.getId());
+        Task task2 = taskService.createTask("House work","keep the house clean",todoList.getId());
         assertEquals(task1,taskService.findTaskById(task1.getId()));
         assertEquals(task2,taskService.findTaskById(task2.getId()));
     }
@@ -102,12 +102,11 @@ class TaskServiceImplTest {
         loginRequest.setPassword("delighted");
         loginRequest.setPassword("password");
         TodoList todoList = toDoListService.login(loginRequest);
-        Task task1 = taskService.createTask("make dinner",todoList.getId());
-        Task task2 = taskService.createTask("Lay bed",todoList.getId());
+        Task task1 = taskService.createTask("School works","Eat well",todoList.getId());
+        Task task2 = taskService.createTask("House works","Cook well",todoList.getId());
         taskService.taskIsCompleted(task1.getId(),"YES");
-       // assertTrue(task1.isCompleted());
-        assertEquals(2,taskRepository.count());
-      //  assertTrue(task1.isCompleted());
+        assertEquals(1,taskRepository.count());
+        assertFalse(task2.isCompleted());
 
 
     }

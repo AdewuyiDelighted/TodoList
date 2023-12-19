@@ -2,8 +2,9 @@ package org.delightedToDoList.service;
 
 import org.delightedToDoList.data.model.Task;
 import org.delightedToDoList.data.model.TodoList;
-import org.delightedToDoList.dtos.request.LoginRequest;
-import org.delightedToDoList.dtos.request.RegisterRequest;
+import org.delightedToDoList.dtos.reponses.FindTaskRequest;
+import org.delightedToDoList.dtos.request.*;
+import org.delightedToDoList.exceptions.TaskAlreadyExitException;
 
 import java.util.List;
 
@@ -13,12 +14,13 @@ public interface ToDoListService {
     TodoList login(LoginRequest loginRequest);
     TodoList findByUserName(String username);
     List<Task> findAllTaskBelongingTo(String username);
-    String addTask(String description,String todolistId);
-    void updateTask(String username,String description,String taskId);
-    void tickOutTask(String id,String response);
-    void deleteTaskById(String taskId);
-    void deleteAllTask();
-    void listOfTask(Task task);
+    void addTask(AddTaskRequest addTaskRequest);
+    void updateTask(UpdateTaskRequest updateTaskRequest);
+    void tickOutTask(TickOutTaskRequest tickOutTaskRequest);
+    Task findTask(FindTaskRequest findTaskRequest);
+    void deleteTaskById(DeleteTaskByIdRequest deleteTaskByIdRequest);
+    void deleteAllTask(String username);
+    void deleteToDoList(String username);
 
 
 }

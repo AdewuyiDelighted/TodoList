@@ -15,8 +15,9 @@ import java.util.Date;
 public class Task {
     @Id
     private String id;
+    private String title;
     private String description;
-    private boolean isCompleted;
+    private boolean isCompleted = false;
     private String todoListId;
 
 }

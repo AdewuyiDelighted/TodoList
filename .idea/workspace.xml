@@ -5,38 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="986777d3-1484-45df-8e6c-7e9f057df664" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/controller/TodoListController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/service/TaskService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/service/TaskServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/service/ToDoListService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/service/ToDoListServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/dtos/reponses/AddTaskResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/dtos/reponses/ApiResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/dtos/reponses/DeleteAccountResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/dtos/reponses/DeleteAllTasksResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/dtos/reponses/DeleteTaskByIdResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/dtos/reponses/FindAllTaskResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/dtos/reponses/FindTaskRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/dtos/reponses/FindTaskResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/dtos/reponses/LoginResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/dtos/reponses/RegisterResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/dtos/reponses/TickOutTaskResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/dtos/reponses/UpdateTaskResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/dtos/request/DeleteTaskByIdRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/dtos/request/TickOutTaskRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/dtos/request/UpdateTaskRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/exceptions/TaskAlreadyExitException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/controller/TaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/controller/TaskController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/controller/TaskController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/controller/TodoListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/controller/TodoListController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/data/model/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/data/model/Task.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/data/model/TodoList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/data/model/TodoList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/data/repositories/TaskRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/data/repositories/TaskRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/data/repositories/TodoListRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/data/repositories/TodoListRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/dtos/request/AddTaskRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/dtos/request/AddTaskRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/dtos/request/DeleteRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/dtos/request/DeleteRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/dtos/request/LoginRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/dtos/request/LoginRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/dtos/request/RegisterRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/dtos/request/RegisterRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/exceptions/InvalidDetailExceptions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/exceptions/InvalidDetailExceptions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/exceptions/TaskNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/exceptions/TaskNotFoundException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/exceptions/TodolistExceptions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/exceptions/TodolistExceptions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/exceptions/UserExistExceptions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/exceptions/UserExistExceptions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/service/taskService/TaskService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/service/taskService/TaskServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/service/toDoService/ToDoListService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/service/toDoService/ToDoListServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/utils/Mapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/utils/Mapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/delightedToDoList/controller/TaskControllerTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/delightedToDoList/data/repositories/TaskRepositoryTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/delightedToDoList/service/taskService/TaskServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/delightedToDoList/service/TaskServiceImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/service/TaskService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/service/TaskService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/service/TaskServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/service/TaskServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/service/ToDoListService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/service/ToDoListService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/service/ToDoListServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/service/ToDoListServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/delightedToDoList/service/TaskServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/delightedToDoList/service/TaskServiceImplTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/delightedToDoList/service/toDoService/ToDoListServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/delightedToDoList/service/toDoService/ToDoListServiceImplTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -113,20 +108,7 @@
       <recent name="org.delightedToDoList.data.repositories" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ToDoListServiceImplTest.registerUserAndLoginAddTask">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.delightedToDoList.Main" />
-      <module name="todolist" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.delightedToDoList.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.ToDoListServiceImplTest">
     <configuration name="TaskServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="todolist" />
       <extension name="coverage">
@@ -157,7 +139,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ToDoListServiceImplTest.registerUserAndLoginAddTask" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ToDoListServiceImplTest.registerAndLoginAddTaskAndFindTask" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="todolist" />
       <extension name="coverage">
         <pattern>
@@ -167,32 +149,51 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.delightedToDoList.service.toDoService" />
       <option name="MAIN_CLASS_NAME" value="org.delightedToDoList.service.toDoService.ToDoListServiceImplTest" />
-      <option name="METHOD_NAME" value="registerUserAndLoginAddTask" />
+      <option name="METHOD_NAME" value="registerAndLoginAddTaskAndFindTask" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+    <configuration name="ToDoListServiceImplTest.registerUserAndLoginAddThreeTaskAndDeleteTwoTask" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="todolist" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="org.delightedToDoList.Main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.delightedToDoList.*" />
+          <option name="PATTERN" value="org.delightedToDoList.service.toDoService.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="org.delightedToDoList.service.toDoService" />
+      <option name="MAIN_CLASS_NAME" value="org.delightedToDoList.service.toDoService.ToDoListServiceImplTest" />
+      <option name="METHOD_NAME" value="registerUserAndLoginAddThreeTaskAndDeleteTwoTask" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ToDoListServiceImplTest.registerUserAndLoginAddTwoTasksTickOutTaskTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="todolist" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.delightedToDoList.service.toDoService.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.delightedToDoList.service.toDoService" />
+      <option name="MAIN_CLASS_NAME" value="org.delightedToDoList.service.toDoService.ToDoListServiceImplTest" />
+      <option name="METHOD_NAME" value="registerUserAndLoginAddTwoTasksTickOutTaskTest" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ToDoListServiceImplTest.registerUserAndLoginAddTask" />
-        <item itemvalue="Spring Boot.Main" />
-        <item itemvalue="JUnit.TaskServiceImplTest" />
         <item itemvalue="JUnit.ToDoListServiceImplTest" />
-        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.ToDoListServiceImplTest.registerAndLoginAddTaskAndFindTask" />
+        <item itemvalue="JUnit.TaskServiceImplTest" />
+        <item itemvalue="JUnit.ToDoListServiceImplTest.registerUserAndLoginAddTwoTasksTickOutTaskTest" />
+        <item itemvalue="JUnit.ToDoListServiceImplTest.registerUserAndLoginAddThreeTaskAndDeleteTwoTask" />
       </list>
     </recent_temporary>
   </component>
@@ -209,7 +210,7 @@
       <workItem from="1702646668464" duration="17780000" />
       <workItem from="1702738535416" duration="11222000" />
       <workItem from="1702799525006" duration="41483000" />
-      <workItem from="1702922010188" duration="13720000" />
+      <workItem from="1702922010188" duration="43057000" />
     </task>
     <servers />
   </component>

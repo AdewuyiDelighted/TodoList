@@ -16,18 +16,27 @@ import java.util.List;
 public class TaskServiceImpl implements TaskService {
     @Autowired
     private TaskRepository taskRepository;
-    @Autowired
-    private ToDoListService toDoListService;
+
 
 
     @Override
-    public Task createTask(String description, String todoListId) {
+    public Task createTask(String title,String description, String todoListId) {
         Task task = new Task();
+        task.setTitle(title);
         task.setDescription(description);
         task.setTodoListId(todoListId);
         taskRepository.save(task);
-        toDoListService.listOfTask(task);
         return task;
+    }
+   @Override
+    public List<Task> findByToDoListId(String todoListId){
+        List<Task> tasksOfUser = new ArrayList<>();
+        for(Task task : taskRepository.findAll()){
+            if(task.getTodoListId().equals(todoListId)){
+                tasksOfUser.add(task);
+            }
+        }
+        return tasksOfUser;
     }
 
     @Override
@@ -44,18 +53,12 @@ public class TaskServiceImpl implements TaskService {
 
 
     @Override
-    public void taskIsCompleted(String taskId, String response) {
+    public void taskIsCompleted(String taskId, String response){
         Task task = findTaskById(taskId);
-        if(response.equalsIgnoreCase("yes")) {
+        if(response.equalsIgnoreCase("yes")){
             task.setCompleted(true);
-            taskRepository.save(task);
+            taskRepository.delete(task);
         }
-    }
-
-
-    @Override
-    public List<Task> findAll(){
-        return taskRepository.findAll();
     }
 
     @Override
@@ -64,8 +67,8 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    public void deleteAllTasks(){
-        taskRepository.deleteAll();
+    public void deleteAllTasks(List<Task> tasks){
+        taskRepository.deleteAll(tasks);
     }
 
 

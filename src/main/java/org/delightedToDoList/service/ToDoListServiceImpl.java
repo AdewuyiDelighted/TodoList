@@ -3,9 +3,10 @@ package org.delightedToDoList.service;
 import org.delightedToDoList.data.model.Task;
 import org.delightedToDoList.data.model.TodoList;
 import org.delightedToDoList.data.repositories.TodoListRepository;
-import org.delightedToDoList.dtos.request.LoginRequest;
-import org.delightedToDoList.dtos.request.RegisterRequest;
+import org.delightedToDoList.dtos.reponses.FindTaskRequest;
+import org.delightedToDoList.dtos.request.*;
 import org.delightedToDoList.exceptions.InvalidDetailExceptions;
+import org.delightedToDoList.exceptions.TaskAlreadyExitException;
 import org.delightedToDoList.exceptions.UserExistExceptions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,8 +26,7 @@ public class ToDoListServiceImpl implements ToDoListService {
 
     @Override
     public void register(RegisterRequest registerRequest) {
-        if (userExist(registerRequest.getUsername()))
-            throw new UserExistExceptions(registerRequest.getUsername() + " already exist");
+        if (userExist(registerRequest.getUsername()))throw new UserExistExceptions(registerRequest.getUsername() + " already exist");
         TodoList todoList = map(registerRequest);
         todoListRepository.save(todoList);
     }
@@ -59,55 +59,86 @@ public class ToDoListServiceImpl implements ToDoListService {
     @Override
     public List<Task> findAllTaskBelongingTo(String username) {
         TodoList todoList = findByUserName(username);
-        List<Task> thisUserTask = new ArrayList<>();
-        for (Task task : taskService.findAll()) {
-            if (task.getTodoListId().equals(todoList.getId())) {
-                thisUserTask.add(task);
+        return taskService.findByToDoListId(todoList.getId());
+    }
+
+
+    @Override
+    public void addTask(AddTaskRequest addTaskRequest) {
+        TodoList todoList = validateTaskExistence(addTaskRequest);
+        taskService.createTask(addTaskRequest.getTitle(),addTaskRequest.getDescription(),todoList.getId());
+
+    }
+    private TodoList validateTaskExistence(AddTaskRequest addTaskRequest) {
+        TodoList todoList = findByUserName(addTaskRequest.getUsername());
+        List<Task> tasks = taskService.findByToDoListId(todoList.getId());
+        for(Task task : tasks) {
+            if (task.getTitle().equals(addTaskRequest.getTitle()) && task.getDescription().equals(addTaskRequest.getDescription())) {
+                throw new TaskAlreadyExitException("Task already exist");
             }
         }
-        return thisUserTask;
+        return todoList;
+    }
+
+
+
+    @Override
+    public void updateTask(UpdateTaskRequest updateTaskRequest) {
+        TodoList todoList = findByUserName(updateTaskRequest.getUsername());
+        for (Task tasks : taskService.findByToDoListId(todoList.getId())) {
+            if (tasks.getTitle().equals(updateTaskRequest.getTitle()) && tasks.getDescription().equals(updateTaskRequest.getPreviousDescription())) {
+                taskService.updateTask(updateTaskRequest.getNewDescription(), tasks.getId());
+            }
+        }
+
     }
 
     @Override
-    public String addTask(String username, String description) {
+    public void tickOutTask(TickOutTaskRequest tickOutTaskRequest) {
+        TodoList todoList = findByUserName(tickOutTaskRequest.getUsername());
+        List<Task> tasks = taskService.findByToDoListId(todoList.getId());
+        for (Task task : tasks) {
+            if (task.getTitle().equals(tickOutTaskRequest.getTitle()) && task.getDescription().equals(tickOutTaskRequest.getDescription())) {
+                taskService.taskIsCompleted(task.getId(), tickOutTaskRequest.getResponse());
+            }
+        }
+    }
+
+    @Override
+    public Task findTask(FindTaskRequest findTaskRequest) {
+        TodoList todoList = findByUserName(findTaskRequest.getUsername());
+        for (Task tasks : taskService.findByToDoListId(todoList.getId())) {
+            if (tasks.getTitle().equals(findTaskRequest.getTitle()) && tasks.getDescription().equals(findTaskRequest.getDescription())) {
+               return taskService.findTaskById(tasks.getId());
+            }
+        }
+        return null;
+    }
+
+
+    @Override
+    public void deleteTaskById(DeleteTaskByIdRequest deleteTaskByIdRequest) {
+        TodoList todoList = findByUserName(deleteTaskByIdRequest.getUsername());
+        for (Task tasks : taskService.findByToDoListId(todoList.getId())) {
+            if (tasks.getTitle().equals(deleteTaskByIdRequest.getTitle()) && tasks.getDescription().equals(deleteTaskByIdRequest.getDescription())) {
+                taskService.deleteTaskById(tasks.getId());
+            }
+        }
+
+    }
+
+    @Override
+    public void deleteAllTask(String username) {
         TodoList todoList = findByUserName(username);
-        taskService.createTask(description, todoList.getId());
-        return "task added";
+        List<Task> tasksOfUsername = taskService.findByToDoListId(todoList.getId());
+        taskService.deleteAllTasks(tasksOfUsername);
     }
 
-    @Override
-    public void updateTask(String username, String description, String taskId) {
-//        List<Task> tasksOf = findAllTaskBelongingTo(username);
-//        for (Task task : tasksOf) {
-//            if (task.getId().equals(taskId)) {
-//                taskService.updateTask(description, taskId);
-//            }
-//        }
-            Task task = taskService.findTaskById(taskId);
-            taskService.updateTask(description,task.getId());
-
-    }
 
     @Override
-    public void tickOutTask(String id, String response) {
-        Task task = taskService.findTaskById(id);
-        taskService.taskIsCompleted(task.getId(),response);
-    }
-
-    @Override
-    public void deleteTaskById(String taskId) {
-        taskService.deleteTaskById(taskId);
-    }
-
-    @Override
-    public void deleteAllTask() {
-        taskService.deleteAllTasks();
-    }
-
-    @Override
-    public void listOfTask(Task task) {
-        List<Task> tasks = new ArrayList<>();
-        tasks.add(task);
+    public void deleteToDoList(String username) {
+        TodoList todoList = findByUserName(username);
+        todoListRepository.delete(todoList);
     }
 
 

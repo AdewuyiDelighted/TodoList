@@ -5,18 +5,13 @@ import org.delightedToDoList.data.model.Task;
 import java.util.List;
 
 public interface TaskService {
-    Task createTask(String description, String todoListId);
-
+    Task createTask(String title,String description, String todoListId);
     void taskIsCompleted(String taskId, String response);
-
     void updateTask(String description, String taskId);
-
     Task findTaskById(String taskId);
-
-    List<Task> findAll();
-
+    List<Task> findByToDoListId(String todoListId);
     void deleteTaskById(String taskId);
-    void deleteAllTasks();
+    void deleteAllTasks(List<Task> tasks);
 
 
 }
