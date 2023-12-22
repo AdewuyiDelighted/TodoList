@@ -2,16 +2,15 @@ package org.delightedToDoList.service;
 
 import org.delightedToDoList.data.model.Task;
 import org.delightedToDoList.data.model.TodoList;
-import org.delightedToDoList.dtos.reponses.FindTaskRequest;
+import org.delightedToDoList.dtos.request.FindTaskRequest;
 import org.delightedToDoList.dtos.request.*;
-import org.delightedToDoList.exceptions.TaskAlreadyExitException;
 
 import java.util.List;
 
 public interface ToDoListService {
 
     void register(RegisterRequest registerRequest);
-    TodoList login(LoginRequest loginRequest);
+    TodoList login(RegisterRequest registerRequest,LoginRequest loginRequest);
     TodoList findByUserName(String username);
     List<Task> findAllTaskBelongingTo(String username);
     void addTask(AddTaskRequest addTaskRequest);

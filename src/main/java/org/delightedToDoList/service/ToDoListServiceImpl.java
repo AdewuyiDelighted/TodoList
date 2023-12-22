@@ -3,18 +3,20 @@ package org.delightedToDoList.service;
 import org.delightedToDoList.data.model.Task;
 import org.delightedToDoList.data.model.TodoList;
 import org.delightedToDoList.data.repositories.TodoListRepository;
-import org.delightedToDoList.dtos.reponses.FindTaskRequest;
+import org.delightedToDoList.dtos.request.FindTaskRequest;
 import org.delightedToDoList.dtos.request.*;
 import org.delightedToDoList.exceptions.InvalidDetailExceptions;
 import org.delightedToDoList.exceptions.TaskAlreadyExitException;
+import org.delightedToDoList.exceptions.TodoListLockedExceptions;
 import org.delightedToDoList.exceptions.UserExistExceptions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.delightedToDoList.utils.Mapper.map;
+
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Service
 public class ToDoListServiceImpl implements ToDoListService {
@@ -26,7 +28,11 @@ public class ToDoListServiceImpl implements ToDoListService {
 
     @Override
     public void register(RegisterRequest registerRequest) {
-        if (userExist(registerRequest.getUsername()))throw new UserExistExceptions(registerRequest.getUsername() + " already exist");
+        if (userExist(registerRequest.getUsername()))
+            throw new UserExistExceptions(registerRequest.getUsername() + " already exist");
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String encodedPassword = passwordEncoder.encode(registerRequest.getPassword());
+        registerRequest.setPassword(encodedPassword);
         TodoList todoList = map(registerRequest);
         todoListRepository.save(todoList);
     }
@@ -37,18 +43,23 @@ public class ToDoListServiceImpl implements ToDoListService {
     }
 
     @Override
-    public TodoList login(LoginRequest loginRequest) {
+    public TodoList login(RegisterRequest registerRequest, LoginRequest loginRequest) {
         TodoList todoList = todoListRepository.findByUsername(loginRequest.getUsername());
-        validateUsernameAndPassword(loginRequest, todoList);
+        validateUsernameAndPassword(registerRequest, loginRequest);
         todoList.setLocked(false);
         todoListRepository.save(todoList);
+
         return todoList;
+
     }
 
 
-    private void validateUsernameAndPassword(LoginRequest loginRequest, TodoList todoList) {
+    private void validateUsernameAndPassword(RegisterRequest registerRequest, LoginRequest loginRequest) {
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        if (!passwordEncoder.matches(loginRequest.getPassword(), registerRequest.getPassword()))
+            throw new InvalidDetailExceptions();
         if (!userExist(loginRequest.getUsername())) throw new InvalidDetailExceptions();
-        if (!(todoList.getPassword().equals(loginRequest.getPassword()))) throw new InvalidDetailExceptions();
+
     }
 
     @Override
@@ -66,20 +77,21 @@ public class ToDoListServiceImpl implements ToDoListService {
     @Override
     public void addTask(AddTaskRequest addTaskRequest) {
         TodoList todoList = validateTaskExistence(addTaskRequest);
-        taskService.createTask(addTaskRequest.getTitle(),addTaskRequest.getDescription(),todoList.getId());
+        if (todoList.isLocked()) throw new TodoListLockedExceptions("Todolist locked");
+        taskService.createTask(addTaskRequest.getTitle(), addTaskRequest.getDescription(), todoList.getId());
 
     }
+
     private TodoList validateTaskExistence(AddTaskRequest addTaskRequest) {
         TodoList todoList = findByUserName(addTaskRequest.getUsername());
         List<Task> tasks = taskService.findByToDoListId(todoList.getId());
-        for(Task task : tasks) {
+        for (Task task : tasks) {
             if (task.getTitle().equals(addTaskRequest.getTitle()) && task.getDescription().equals(addTaskRequest.getDescription())) {
                 throw new TaskAlreadyExitException("Task already exist");
             }
         }
         return todoList;
     }
-
 
 
     @Override
@@ -109,7 +121,7 @@ public class ToDoListServiceImpl implements ToDoListService {
         TodoList todoList = findByUserName(findTaskRequest.getUsername());
         for (Task tasks : taskService.findByToDoListId(todoList.getId())) {
             if (tasks.getTitle().equals(findTaskRequest.getTitle()) && tasks.getDescription().equals(findTaskRequest.getDescription())) {
-               return taskService.findTaskById(tasks.getId());
+                return taskService.findTaskById(tasks.getId());
             }
         }
         return null;

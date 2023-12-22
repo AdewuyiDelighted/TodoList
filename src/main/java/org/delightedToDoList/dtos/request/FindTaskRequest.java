@@ -1,4 +1,4 @@
-package org.delightedToDoList.dtos.reponses;
+package org.delightedToDoList.dtos.request;
 
 import lombok.Data;
 

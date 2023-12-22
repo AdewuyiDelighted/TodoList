@@ -3,11 +3,9 @@ package org.delightedToDoList.controller;
 import org.delightedToDoList.dtos.reponses.*;
 import org.delightedToDoList.dtos.request.*;
 import org.delightedToDoList.exceptions.TodolistExceptions;
-import org.delightedToDoList.service.TaskService;
 import org.delightedToDoList.service.ToDoListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,6 +13,8 @@ import org.springframework.web.bind.annotation.*;
 public class TodoListController {
     @Autowired
     private ToDoListService toDoListService;
+   private RegisterRequest registerRequest;
+
 
 
     @PostMapping("/register")
@@ -34,7 +34,7 @@ public class TodoListController {
     public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest) {
         LoginResponse loginResponse = new LoginResponse();
         try {
-            toDoListService.login(loginRequest);
+           // toDoListService.login(registerRequest,loginRequest);
             loginResponse.setMessage("Account unlocked");
             return new ResponseEntity<>(new ApiResponse(true, loginResponse), HttpStatus.OK);
         } catch (TodolistExceptions ex) {
@@ -54,7 +54,7 @@ public class TodoListController {
         }
     }
 
-    @PutMapping("/update")
+    @PutMapping("/updateTask")
     public ResponseEntity<?> updateTask(@RequestBody UpdateTaskRequest updateRequest) {
         UpdateTaskResponse updateTaskResponse = new UpdateTaskResponse();
         try {
@@ -96,7 +96,7 @@ public class TodoListController {
 
 
     @GetMapping("/findAllTasks{username}")
-    public ResponseEntity<?> findAlTasks(@PathVariable("username") String username) {
+    public ResponseEntity<?> findAllTasks(@PathVariable("username") String username) {
         FindAllTaskResponse findAllTaskResponse = new FindAllTaskResponse();
         try {
             toDoListService.findAllTaskBelongingTo(username);
@@ -107,26 +107,39 @@ public class TodoListController {
         }
     }
 
-    @PostMapping("/deleteAllTask{username}")
+    @GetMapping("/findATask")
+    public ResponseEntity<?> findATask(@RequestBody FindTaskRequest findTaskRequest) {
+        FindTaskResponse findTaskResponse = new FindTaskResponse();
+        try {
+            toDoListService.findTask(findTaskRequest);
+            findTaskResponse.setMessage(findTaskRequest.getDescription());
+            return new ResponseEntity<>(new ApiResponse(true, findTaskResponse), HttpStatus.OK);
+        } catch (TodolistExceptions ex) {
+            return new ResponseEntity<>(new ApiResponse(false, findTaskRequest), HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @DeleteMapping("/deleteAllTask{username}")
     public ResponseEntity<?> deleteAllTask(@PathVariable("username") String username) {
         DeleteAllTasksResponse deleteAllTasksResponse = new DeleteAllTasksResponse();
-        try {
+        try{
             toDoListService.deleteAllTask(username);
             deleteAllTasksResponse.setMessage("All task deleted");
             return new ResponseEntity<>(new ApiResponse(true, deleteAllTasksResponse), HttpStatus.OK);
-        } catch (TodolistExceptions ex) {
+        }catch (TodolistExceptions ex) {
             return new ResponseEntity<>(new ApiResponse(false, deleteAllTasksResponse), HttpStatus.BAD_REQUEST);
         }
 
     }
-    @PostMapping("/deleteAccount{username}")
+
+    @DeleteMapping("/deleteAccount{username}")
     public ResponseEntity<?> deleteAccount(@PathVariable("username") String username) {
         DeleteAccountResponse deleteAccountResponse = new DeleteAccountResponse();
-        try {
+        try{
             toDoListService.deleteToDoList(username);
             deleteAccountResponse.setMessage("All task deleted");
             return new ResponseEntity<>(new ApiResponse(true, deleteAccountResponse), HttpStatus.OK);
-        } catch (TodolistExceptions ex){
+        }catch (TodolistExceptions ex) {
             return new ResponseEntity<>(new ApiResponse(false, deleteAccountResponse), HttpStatus.BAD_REQUEST);
         }
 
