@@ -5,14 +5,12 @@ import org.delightedToDoList.data.model.TodoList;
 import org.delightedToDoList.data.repositories.TodoListRepository;
 import org.delightedToDoList.dtos.request.FindTaskRequest;
 import org.delightedToDoList.dtos.request.*;
-import org.delightedToDoList.exceptions.InvalidDetailExceptions;
-import org.delightedToDoList.exceptions.TaskAlreadyExitException;
-import org.delightedToDoList.exceptions.TodoListLockedExceptions;
-import org.delightedToDoList.exceptions.UserExistExceptions;
+import org.delightedToDoList.exceptions.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.regex.Pattern;
 
 import static org.delightedToDoList.utils.Mapper.map;
 
@@ -28,13 +26,18 @@ public class ToDoListServiceImpl implements ToDoListService {
 
     @Override
     public void register(RegisterRequest registerRequest) {
-        if (userExist(registerRequest.getUsername()))
-            throw new UserExistExceptions(registerRequest.getUsername() + " already exist");
+        if (userExist(registerRequest.getUsername()))throw new UserExistExceptions(registerRequest.getUsername() + " already exist");
+        passwordChecker(registerRequest);
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedPassword = passwordEncoder.encode(registerRequest.getPassword());
         registerRequest.setPassword(encodedPassword);
         TodoList todoList = map(registerRequest);
         todoListRepository.save(todoList);
+    }
+
+    private static void passwordChecker(RegisterRequest registerRequest) {
+        String regex = "^(?=.*[0-9])"+"(?=.*[a-z])"+"(?=.*[A-Z])"+"(?=.*[@#$%^&-+=()])"+"(?=\\S+$).{8,20}$";
+        if(!Pattern.matches(regex, registerRequest.getPassword()))throw new PasswordTooWeakException("Password too weak");
     }
 
     private boolean userExist(String username) {
@@ -43,22 +46,20 @@ public class ToDoListServiceImpl implements ToDoListService {
     }
 
     @Override
-    public TodoList login(RegisterRequest registerRequest, LoginRequest loginRequest) {
+    public TodoList login(LoginRequest loginRequest) {
         TodoList todoList = todoListRepository.findByUsername(loginRequest.getUsername());
-        validateUsernameAndPassword(registerRequest, loginRequest);
+        validateUsernameAndPassword(loginRequest,todoList);
         todoList.setLocked(false);
         todoListRepository.save(todoList);
-
         return todoList;
 
     }
 
 
-    private void validateUsernameAndPassword(RegisterRequest registerRequest, LoginRequest loginRequest) {
+    private void validateUsernameAndPassword(LoginRequest loginRequest,TodoList todoList) {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        if (!passwordEncoder.matches(loginRequest.getPassword(), registerRequest.getPassword()))
-            throw new InvalidDetailExceptions();
         if (!userExist(loginRequest.getUsername())) throw new InvalidDetailExceptions();
+        if (!passwordEncoder.matches(loginRequest.getPassword(), todoList.getPassword()))throw new InvalidDetailExceptions();
 
     }
 

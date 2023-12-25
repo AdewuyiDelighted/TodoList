@@ -8,5 +8,5 @@ import java.util.List;
 
 public interface TodoListRepository extends MongoRepository<TodoList,String> {
     TodoList findByUsername(String username);
-    //List<Task> listOfTasks(String todoListId);
+
 }

@@ -10,11 +10,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/api")
 public class TodoListController {
     @Autowired
     private ToDoListService toDoListService;
-   private RegisterRequest registerRequest;
-
 
 
     @PostMapping("/register")
@@ -34,11 +33,12 @@ public class TodoListController {
     public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest) {
         LoginResponse loginResponse = new LoginResponse();
         try {
-           // toDoListService.login(registerRequest,loginRequest);
+            toDoListService.login(loginRequest);
             loginResponse.setMessage("Account unlocked");
             return new ResponseEntity<>(new ApiResponse(true, loginResponse), HttpStatus.OK);
         } catch (TodolistExceptions ex) {
-            return new ResponseEntity<>(new ApiResponse(false, loginRequest), HttpStatus.BAD_REQUEST);
+            loginResponse.setMessage(ex.getMessage());
+            return new ResponseEntity<>(new ApiResponse(false, loginResponse), HttpStatus.BAD_REQUEST);
         }
     }
 
@@ -95,12 +95,12 @@ public class TodoListController {
     }
 
 
-    @GetMapping("/findAllTasks{username}")
+    @GetMapping("/findAllTasks/{username}")
     public ResponseEntity<?> findAllTasks(@PathVariable("username") String username) {
         FindAllTaskResponse findAllTaskResponse = new FindAllTaskResponse();
         try {
-            toDoListService.findAllTaskBelongingTo(username);
-            findAllTaskResponse.setMessage("tasks found");
+           toDoListService.findAllTaskBelongingTo(username);
+            findAllTaskResponse.setTasks(toDoListService.findAllTaskBelongingTo(username));
             return new ResponseEntity<>(new ApiResponse(true, findAllTaskResponse), HttpStatus.OK);
         } catch (TodolistExceptions ex) {
             return new ResponseEntity<>(new ApiResponse(false, findAllTaskResponse), HttpStatus.BAD_REQUEST);
@@ -119,7 +119,7 @@ public class TodoListController {
         }
     }
 
-    @DeleteMapping("/deleteAllTask{username}")
+    @DeleteMapping("/deleteAllTask/{username}")
     public ResponseEntity<?> deleteAllTask(@PathVariable("username") String username) {
         DeleteAllTasksResponse deleteAllTasksResponse = new DeleteAllTasksResponse();
         try{
@@ -132,7 +132,7 @@ public class TodoListController {
 
     }
 
-    @DeleteMapping("/deleteAccount{username}")
+    @DeleteMapping("/deleteAccount/{username}")
     public ResponseEntity<?> deleteAccount(@PathVariable("username") String username) {
         DeleteAccountResponse deleteAccountResponse = new DeleteAccountResponse();
         try{
@@ -142,7 +142,6 @@ public class TodoListController {
         }catch (TodolistExceptions ex) {
             return new ResponseEntity<>(new ApiResponse(false, deleteAccountResponse), HttpStatus.BAD_REQUEST);
         }
-
     }
 
 

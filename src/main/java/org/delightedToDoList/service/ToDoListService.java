@@ -10,7 +10,7 @@ import java.util.List;
 public interface ToDoListService {
 
     void register(RegisterRequest registerRequest);
-    TodoList login(RegisterRequest registerRequest,LoginRequest loginRequest);
+    TodoList login(LoginRequest loginRequest);
     TodoList findByUserName(String username);
     List<Task> findAllTaskBelongingTo(String username);
     void addTask(AddTaskRequest addTaskRequest);

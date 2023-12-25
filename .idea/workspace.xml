@@ -5,12 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="986777d3-1484-45df-8e6c-7e9f057df664" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/exceptions/TodoListLockedExceptions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/exceptions/PasswordTooWeakException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/controller/TodoListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/controller/TodoListController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/dtos/reponses/FindTaskRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/dtos/request/FindTaskRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/data/repositories/TodoListRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/data/repositories/TodoListRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/dtos/reponses/FindAllTaskResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/dtos/reponses/FindAllTaskResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/service/ToDoListService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/service/ToDoListService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/service/ToDoListServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/service/ToDoListServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/delightedToDoList/service/TaskServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/delightedToDoList/service/TaskServiceImplTest.java" afterDir="false" />
@@ -65,7 +64,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;Docker&quot;,
     &quot;spring.configuration.checksum&quot;: &quot;086bec6f119951c2a07358deb5991a3e&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -91,7 +90,7 @@
       <recent name="org.delightedToDoList.data.repositories" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.Main">
+  <component name="RunManager" selected="Docker.DockerFile">
     <configuration name="TaskServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="todolist" />
       <extension name="coverage">
@@ -122,7 +121,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ToDoListServiceImplTest.registerAndLoginAddTaskAndFindTask" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ToDoListServiceImplTest.registerAndLoginWithIncorrectUsernameTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="todolist" />
       <extension name="coverage">
         <pattern>
@@ -132,7 +131,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.delightedToDoList.service.toDoService" />
       <option name="MAIN_CLASS_NAME" value="org.delightedToDoList.service.toDoService.ToDoListServiceImplTest" />
-      <option name="METHOD_NAME" value="registerAndLoginAddTaskAndFindTask" />
+      <option name="METHOD_NAME" value="registerAndLoginWithIncorrectUsernameTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -167,13 +166,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="DockerFile" type="docker-deploy" factoryName="dockerfile">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="sourceFilePath" value="DockerFile" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.Main" />
         <item itemvalue="JUnit.TaskServiceImplTest" />
         <item itemvalue="JUnit.ToDoListServiceImplTest" />
+        <item itemvalue="JUnit.ToDoListServiceImplTest.registerAndLoginWithIncorrectUsernameTest" />
         <item itemvalue="JUnit.ToDoListServiceImplTest.registerUserAndLoginTheSameUserAgainTest" />
-        <item itemvalue="JUnit.ToDoListServiceImplTest.registerAndLoginAddTaskAndFindTask" />
       </list>
     </recent_temporary>
   </component>
@@ -193,11 +200,19 @@
       <workItem from="1702922010188" duration="54313000" />
       <workItem from="1703185045750" duration="12059000" />
       <workItem from="1703255892585" duration="4274000" />
-      <workItem from="1703272598795" duration="2517000" />
+      <workItem from="1703272598795" duration="28581000" />
+      <workItem from="1703413300308" duration="595000" />
+      <workItem from="1703430255691" duration="2935000" />
+      <workItem from="1703498188629" duration="7564000" />
+      <workItem from="1703542634130" duration="495000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

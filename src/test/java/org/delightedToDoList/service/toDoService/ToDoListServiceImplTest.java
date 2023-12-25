@@ -50,7 +50,7 @@ class ToDoListServiceImplTest {
         LoginRequest loginRequest = new LoginRequest();
         loginRequest.setUsername("username");
         loginRequest.setPassword("password");
-        toDoListService.login(registerRequest,loginRequest);
+        toDoListService.login(loginRequest);
         assertEquals(1, todoListRepository.count());
     }
 
@@ -64,7 +64,7 @@ class ToDoListServiceImplTest {
         LoginRequest loginRequest = new LoginRequest();
         loginRequest.setUsername("username");
         loginRequest.setPassword("WrongPassword");
-        assertThrows(InvalidDetailExceptions.class, () -> toDoListService.login(registerRequest,loginRequest));
+        assertThrows(InvalidDetailExceptions.class, () -> toDoListService.login(loginRequest));
     }
 
     @Test
@@ -77,7 +77,7 @@ class ToDoListServiceImplTest {
         LoginRequest loginRequest = new LoginRequest();
         loginRequest.setUsername("userName");
         loginRequest.setPassword("password");
-        assertThrows(InvalidDetailExceptions.class, () -> toDoListService.login(registerRequest,loginRequest));
+        assertThrows(InvalidDetailExceptions.class, () -> toDoListService.login(loginRequest));
     }
 
     @Test
@@ -89,7 +89,7 @@ class ToDoListServiceImplTest {
         LoginRequest loginRequest = new LoginRequest();
         loginRequest.setUsername("username");
         loginRequest.setPassword("password");
-        toDoListService.login(registerRequest,loginRequest);
+        toDoListService.login(loginRequest);
         AddTaskRequest addTaskRequest = new AddTaskRequest();
         addTaskRequest.setUsername("username");
         addTaskRequest.setTitle("my personal work");
@@ -108,7 +108,7 @@ class ToDoListServiceImplTest {
         LoginRequest loginRequest = new LoginRequest();
         loginRequest.setUsername("username");
         loginRequest.setPassword("password");
-        toDoListService.login(registerRequest,loginRequest);
+        toDoListService.login(loginRequest);
         AddTaskRequest addTaskRequestOne = new AddTaskRequest();
         addTaskRequestOne.setUsername("username");
         addTaskRequestOne.setTitle("my personal work");
@@ -138,7 +138,7 @@ class ToDoListServiceImplTest {
         LoginRequest loginRequest = new LoginRequest();
         loginRequest.setUsername("Delighted");
         loginRequest.setPassword("password");
-        toDoListService.login(registerRequest,loginRequest);
+        toDoListService.login(loginRequest);
         AddTaskRequest addTaskRequestOne = new AddTaskRequest();
         addTaskRequestOne.setUsername("Delighted");
         addTaskRequestOne.setTitle("church errand");
@@ -160,7 +160,7 @@ class ToDoListServiceImplTest {
         LoginRequest loginRequest = new LoginRequest();
         loginRequest.setUsername("Delighted");
         loginRequest.setPassword("password");
-        toDoListService.login(registerRequest,loginRequest);
+        toDoListService.login(loginRequest);
         AddTaskRequest addTaskRequestOne = new AddTaskRequest();
         addTaskRequestOne.setUsername("Delighted");
         addTaskRequestOne.setTitle("church errand");
@@ -190,7 +190,7 @@ class ToDoListServiceImplTest {
         LoginRequest loginRequest = new LoginRequest();
         loginRequest.setUsername("dele");
         loginRequest.setPassword("password");
-        toDoListService.login(registerRequest,loginRequest);
+        toDoListService.login(loginRequest);
         AddTaskRequest addTaskRequestOne = new AddTaskRequest();
         addTaskRequestOne.setUsername("dele");
         addTaskRequestOne.setTitle("work errands");
@@ -229,7 +229,7 @@ class ToDoListServiceImplTest {
         LoginRequest loginRequest = new LoginRequest();
         loginRequest.setUsername("dele");
         loginRequest.setPassword("password");
-        toDoListService.login(registerRequest,loginRequest);
+        toDoListService.login(loginRequest);
         AddTaskRequest addTaskRequestOne = new AddTaskRequest();
         addTaskRequestOne.setUsername("dele");
         addTaskRequestOne.setTitle("work errands");
@@ -259,7 +259,7 @@ class ToDoListServiceImplTest {
         LoginRequest loginRequest = new LoginRequest();
         loginRequest.setUsername("ola");
         loginRequest.setPassword("password");
-        toDoListService.login(registerRequest,loginRequest);
+        toDoListService.login(loginRequest);
         AddTaskRequest addTaskRequestOne = new AddTaskRequest();
         addTaskRequestOne.setUsername("ola");
         addTaskRequestOne.setTitle("home errands");
@@ -289,7 +289,7 @@ class ToDoListServiceImplTest {
         LoginRequest loginRequest = new LoginRequest();
         loginRequest.setUsername("jide");
         loginRequest.setPassword("password");
-        toDoListService.login(registerRequest,loginRequest);
+        toDoListService.login(loginRequest);
         AddTaskRequest addTaskRequestOne = new AddTaskRequest();
         addTaskRequestOne.setUsername("jide");
         addTaskRequestOne.setTitle("home errands");
@@ -318,7 +318,7 @@ class ToDoListServiceImplTest {
         LoginRequest loginRequest = new LoginRequest();
         loginRequest.setUsername("ola");
         loginRequest.setPassword("password");
-        toDoListService.login(registerRequest,loginRequest);
+        toDoListService.login(loginRequest);
         AddTaskRequest addTaskRequestOne = new AddTaskRequest();
         addTaskRequestOne.setUsername("ola");
         addTaskRequestOne.setTitle("home errands");
