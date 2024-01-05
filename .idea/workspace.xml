@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="986777d3-1484-45df-8e6c-7e9f057df664" name="Changes" comment="" />
+    <list default="true" id="986777d3-1484-45df-8e6c-7e9f057df664" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/controller/TodoListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/controller/TodoListController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/data/repositories/TaskRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/data/repositories/TaskRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/delightedToDoList/service/TaskServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/delightedToDoList/service/TaskServiceImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/delightedToDoList/service/toDoService/ToDoListServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/delightedToDoList/service/toDoService/ToDoListServiceImplTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -96,6 +106,38 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TaskServiceImplTest.testThatTaskUpdateTaskThatHasBeenSetBefore" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="todolist" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.delightedToDoList.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.delightedToDoList.service" />
+      <option name="MAIN_CLASS_NAME" value="org.delightedToDoList.service.TaskServiceImplTest" />
+      <option name="METHOD_NAME" value="testThatTaskUpdateTaskThatHasBeenSetBefore" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TaskServiceImplTest.testWhenTaskIsCreated" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="todolist" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.delightedToDoList.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.delightedToDoList.service" />
+      <option name="MAIN_CLASS_NAME" value="org.delightedToDoList.service.TaskServiceImplTest" />
+      <option name="METHOD_NAME" value="testWhenTaskIsCreated" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ToDoListServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="todolist" />
       <extension name="coverage">
@@ -107,38 +149,6 @@
       <option name="PACKAGE_NAME" value="org.delightedToDoList.service.toDoService" />
       <option name="MAIN_CLASS_NAME" value="org.delightedToDoList.service.toDoService.ToDoListServiceImplTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ToDoListServiceImplTest.registerAndLoginWithIncorrectUsernameTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="todolist" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.delightedToDoList.service.toDoService.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.delightedToDoList.service.toDoService" />
-      <option name="MAIN_CLASS_NAME" value="org.delightedToDoList.service.toDoService.ToDoListServiceImplTest" />
-      <option name="METHOD_NAME" value="registerAndLoginWithIncorrectUsernameTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ToDoListServiceImplTest.registerUserAndLoginTheSameUserAgainTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="todolist" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.delightedToDoList.service.toDoService.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.delightedToDoList.service.toDoService" />
-      <option name="MAIN_CLASS_NAME" value="org.delightedToDoList.service.toDoService.ToDoListServiceImplTest" />
-      <option name="METHOD_NAME" value="registerUserAndLoginTheSameUserAgainTest" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -167,10 +177,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.Main" />
-        <item itemvalue="JUnit.TaskServiceImplTest" />
         <item itemvalue="JUnit.ToDoListServiceImplTest" />
-        <item itemvalue="JUnit.ToDoListServiceImplTest.registerAndLoginWithIncorrectUsernameTest" />
-        <item itemvalue="JUnit.ToDoListServiceImplTest.registerUserAndLoginTheSameUserAgainTest" />
+        <item itemvalue="JUnit.TaskServiceImplTest" />
+        <item itemvalue="JUnit.TaskServiceImplTest.testThatTaskUpdateTaskThatHasBeenSetBefore" />
+        <item itemvalue="JUnit.TaskServiceImplTest.testWhenTaskIsCreated" />
       </list>
     </recent_temporary>
   </component>
@@ -206,12 +216,23 @@
       <workItem from="1704389749776" duration="1604000" />
       <workItem from="1704397583175" duration="1763000" />
       <workItem from="1704445587016" duration="4642000" />
-      <workItem from="1704466689781" duration="3851000" />
+      <workItem from="1704466689781" duration="13301000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/org/delightedToDoList/service/TaskServiceImplTest.java</url>
+          <line>17</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

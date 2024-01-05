@@ -36,7 +36,7 @@ class ToDoListServiceImplTest {
     public void registerUserAndRegisterTheSameUserAgainTest() {
         RegisterRequest registerRequest = new RegisterRequest();
         registerRequest.setUsername("username");
-        registerRequest.setPassword("password");
+        registerRequest.setPassword("Password@2211");
         toDoListService.register(registerRequest);
         assertThrows(UserExistExceptions.class, () -> toDoListService.register(registerRequest));
     }
@@ -45,11 +45,11 @@ class ToDoListServiceImplTest {
     public void registerUserAndLoginTheSameUserAgainTest() {
         RegisterRequest registerRequest = new RegisterRequest();
         registerRequest.setUsername("username");
-        registerRequest.setPassword("password");
+        registerRequest.setPassword("Password@2211");
         toDoListService.register(registerRequest);
         LoginRequest loginRequest = new LoginRequest();
         loginRequest.setUsername("username");
-        loginRequest.setPassword("password");
+        loginRequest.setPassword("Password@2211");
         toDoListService.login(loginRequest);
         assertEquals(1, todoListRepository.count());
     }
@@ -59,7 +59,7 @@ class ToDoListServiceImplTest {
     public void registerAndLoginWithIncorrectPasswordTest() {
         RegisterRequest registerRequest = new RegisterRequest();
         registerRequest.setUsername("username");
-        registerRequest.setPassword("password");
+        registerRequest.setPassword("Password@2211");
         toDoListService.register(registerRequest);
         LoginRequest loginRequest = new LoginRequest();
         loginRequest.setUsername("username");
@@ -72,11 +72,11 @@ class ToDoListServiceImplTest {
     public void registerAndLoginWithIncorrectUsernameTest() {
         RegisterRequest registerRequest = new RegisterRequest();
         registerRequest.setUsername("username");
-        registerRequest.setPassword("password");
+        registerRequest.setPassword("Password@2211");
         toDoListService.register(registerRequest);
         LoginRequest loginRequest = new LoginRequest();
         loginRequest.setUsername("userName");
-        loginRequest.setPassword("password");
+        loginRequest.setPassword("Password@2211");
         assertThrows(InvalidDetailExceptions.class, () -> toDoListService.login(loginRequest));
     }
 
@@ -84,11 +84,11 @@ class ToDoListServiceImplTest {
     public void registerUserAndLoginAddTask() {
         RegisterRequest registerRequest = new RegisterRequest();
         registerRequest.setUsername("username");
-        registerRequest.setPassword("password");
+        registerRequest.setPassword("Password@2211");
         toDoListService.register(registerRequest);
         LoginRequest loginRequest = new LoginRequest();
         loginRequest.setUsername("username");
-        loginRequest.setPassword("password");
+        loginRequest.setPassword("Password@2211");
         toDoListService.login(loginRequest);
         AddTaskRequest addTaskRequest = new AddTaskRequest();
         addTaskRequest.setUsername("username");
@@ -103,11 +103,11 @@ class ToDoListServiceImplTest {
     public void registerUserAndLoginAddTwoTaskAndUpdateOneTaskTest() {
         RegisterRequest registerRequest = new RegisterRequest();
         registerRequest.setUsername("username");
-        registerRequest.setPassword("password");
+        registerRequest.setPassword("Password@2211");
         toDoListService.register(registerRequest);
         LoginRequest loginRequest = new LoginRequest();
         loginRequest.setUsername("username");
-        loginRequest.setPassword("password");
+        loginRequest.setPassword("Password@2211");
         toDoListService.login(loginRequest);
         AddTaskRequest addTaskRequestOne = new AddTaskRequest();
         addTaskRequestOne.setUsername("username");
@@ -133,11 +133,11 @@ class ToDoListServiceImplTest {
     public void registerUserAndLoginAddTaskThatAlreadyExit() {
         RegisterRequest registerRequest = new RegisterRequest();
         registerRequest.setUsername("Delighted");
-        registerRequest.setPassword("password");
+        registerRequest.setPassword("Password@2211");
         toDoListService.register(registerRequest);
         LoginRequest loginRequest = new LoginRequest();
         loginRequest.setUsername("Delighted");
-        loginRequest.setPassword("password");
+        loginRequest.setPassword("Password@2211");
         toDoListService.login(loginRequest);
         AddTaskRequest addTaskRequestOne = new AddTaskRequest();
         addTaskRequestOne.setUsername("Delighted");
@@ -155,11 +155,11 @@ class ToDoListServiceImplTest {
     public void registerUserAndLoginAddTwoTasksTickOutTaskTest() {
         RegisterRequest registerRequest = new RegisterRequest();
         registerRequest.setUsername("Delighted");
-        registerRequest.setPassword("password");
+        registerRequest.setPassword("Password@2211");
         toDoListService.register(registerRequest);
         LoginRequest loginRequest = new LoginRequest();
         loginRequest.setUsername("Delighted");
-        loginRequest.setPassword("password");
+        loginRequest.setPassword("Password@2211");
         toDoListService.login(loginRequest);
         AddTaskRequest addTaskRequestOne = new AddTaskRequest();
         addTaskRequestOne.setUsername("Delighted");
@@ -185,11 +185,11 @@ class ToDoListServiceImplTest {
     public void registerUserAndLoginAddThreeTaskAndDeleteTwoTask() {
         RegisterRequest registerRequest = new RegisterRequest();
         registerRequest.setUsername("dele");
-        registerRequest.setPassword("password");
+        registerRequest.setPassword("Password@2211");
         toDoListService.register(registerRequest);
         LoginRequest loginRequest = new LoginRequest();
         loginRequest.setUsername("dele");
-        loginRequest.setPassword("password");
+        loginRequest.setPassword("Password@2211");
         toDoListService.login(loginRequest);
         AddTaskRequest addTaskRequestOne = new AddTaskRequest();
         addTaskRequestOne.setUsername("dele");
@@ -224,11 +224,11 @@ class ToDoListServiceImplTest {
     public void registerUserAndLoginAddThreeTaskAndDeleteAll() {
         RegisterRequest registerRequest = new RegisterRequest();
         registerRequest.setUsername("dele");
-        registerRequest.setPassword("password");
+        registerRequest.setPassword("Password@123");
         toDoListService.register(registerRequest);
         LoginRequest loginRequest = new LoginRequest();
         loginRequest.setUsername("dele");
-        loginRequest.setPassword("password");
+        loginRequest.setPassword("Password@123");
         toDoListService.login(loginRequest);
         AddTaskRequest addTaskRequestOne = new AddTaskRequest();
         addTaskRequestOne.setUsername("dele");
@@ -254,11 +254,11 @@ class ToDoListServiceImplTest {
     public void registerUserAndLoginAddThreeTaskAndDeleteToDoList() {
         RegisterRequest registerRequest = new RegisterRequest();
         registerRequest.setUsername("ola");
-        registerRequest.setPassword("password");
+        registerRequest.setPassword("Password@123");
         toDoListService.register(registerRequest);
         LoginRequest loginRequest = new LoginRequest();
         loginRequest.setUsername("ola");
-        loginRequest.setPassword("password");
+        loginRequest.setPassword("Password@123");
         toDoListService.login(loginRequest);
         AddTaskRequest addTaskRequestOne = new AddTaskRequest();
         addTaskRequestOne.setUsername("ola");
@@ -284,11 +284,11 @@ class ToDoListServiceImplTest {
     public void registerUserAndLoginAddThreeTaskAndFindAll() {
         RegisterRequest registerRequest = new RegisterRequest();
         registerRequest.setUsername("jide");
-        registerRequest.setPassword("password");
+        registerRequest.setPassword("Password@123");
         toDoListService.register(registerRequest);
         LoginRequest loginRequest = new LoginRequest();
         loginRequest.setUsername("jide");
-        loginRequest.setPassword("password");
+        loginRequest.setPassword("Password@123");
         toDoListService.login(loginRequest);
         AddTaskRequest addTaskRequestOne = new AddTaskRequest();
         addTaskRequestOne.setUsername("jide");
@@ -313,11 +313,11 @@ class ToDoListServiceImplTest {
     public void registerAndLoginAddTaskAndFindTask() {
         RegisterRequest registerRequest = new RegisterRequest();
         registerRequest.setUsername("ola");
-        registerRequest.setPassword("password");
+        registerRequest.setPassword("Password@123");
         toDoListService.register(registerRequest);
         LoginRequest loginRequest = new LoginRequest();
         loginRequest.setUsername("ola");
-        loginRequest.setPassword("password");
+        loginRequest.setPassword("Password@123");
         toDoListService.login(loginRequest);
         AddTaskRequest addTaskRequestOne = new AddTaskRequest();
         addTaskRequestOne.setUsername("ola");
