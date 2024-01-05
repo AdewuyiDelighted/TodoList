@@ -5,15 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="986777d3-1484-45df-8e6c-7e9f057df664" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/exceptions/PasswordTooWeakException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Procfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/controller/TodoListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/controller/TodoListController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/data/repositories/TodoListRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/data/repositories/TodoListRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/dtos/reponses/FindAllTaskResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/dtos/reponses/FindAllTaskResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/service/ToDoListService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/service/ToDoListService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/service/ToDoListServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/service/ToDoListServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/delightedToDoList/service/TaskServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/delightedToDoList/service/TaskServiceImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/delightedToDoList/service/toDoService/ToDoListServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/delightedToDoList/service/toDoService/ToDoListServiceImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +87,7 @@
       <recent name="org.delightedToDoList.data.repositories" />
     </key>
   </component>
-  <component name="RunManager" selected="Docker.DockerFile">
+  <component name="RunManager" selected="Spring Boot.Main">
     <configuration name="TaskServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="todolist" />
       <extension name="coverage">
@@ -204,7 +201,19 @@
       <workItem from="1703413300308" duration="595000" />
       <workItem from="1703430255691" duration="2935000" />
       <workItem from="1703498188629" duration="7564000" />
-      <workItem from="1703542634130" duration="495000" />
+      <workItem from="1703542634130" duration="4762000" />
+      <workItem from="1703596446385" duration="1295000" />
+      <workItem from="1703682416564" duration="157000" />
+      <workItem from="1703703809547" duration="162000" />
+      <workItem from="1703805011925" duration="26000" />
+      <workItem from="1703846360294" duration="493000" />
+      <workItem from="1703847138064" duration="540000" />
+      <workItem from="1704387793940" duration="611000" />
+      <workItem from="1704388517866" duration="568000" />
+      <workItem from="1704389749776" duration="1604000" />
+      <workItem from="1704397583175" duration="1763000" />
+      <workItem from="1704445587016" duration="4642000" />
+      <workItem from="1704466689781" duration="3466000" />
     </task>
     <servers />
   </component>

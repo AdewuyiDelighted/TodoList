@@ -49,6 +49,7 @@ public class TodoListController {
             toDoListService.addTask(addTaskRequest);
             addTaskResponse.setMessage("Task added");
             return new ResponseEntity<>(new ApiResponse(true, addTaskResponse), HttpStatus.OK);
+
         } catch (TodolistExceptions ex) {
             return new ResponseEntity<>(new ApiResponse(false, addTaskResponse), HttpStatus.BAD_REQUEST);
         }
@@ -99,7 +100,7 @@ public class TodoListController {
     public ResponseEntity<?> findAllTasks(@PathVariable("username") String username) {
         FindAllTaskResponse findAllTaskResponse = new FindAllTaskResponse();
         try {
-           toDoListService.findAllTaskBelongingTo(username);
+            toDoListService.findAllTaskBelongingTo(username);
             findAllTaskResponse.setTasks(toDoListService.findAllTaskBelongingTo(username));
             return new ResponseEntity<>(new ApiResponse(true, findAllTaskResponse), HttpStatus.OK);
         } catch (TodolistExceptions ex) {
@@ -122,24 +123,25 @@ public class TodoListController {
     @DeleteMapping("/deleteAllTask/{username}")
     public ResponseEntity<?> deleteAllTask(@PathVariable("username") String username) {
         DeleteAllTasksResponse deleteAllTasksResponse = new DeleteAllTasksResponse();
-        try{
+        try {
             toDoListService.deleteAllTask(username);
             deleteAllTasksResponse.setMessage("All task deleted");
             return new ResponseEntity<>(new ApiResponse(true, deleteAllTasksResponse), HttpStatus.OK);
-        }catch (TodolistExceptions ex) {
+        } catch (TodolistExceptions ex) {
             return new ResponseEntity<>(new ApiResponse(false, deleteAllTasksResponse), HttpStatus.BAD_REQUEST);
         }
 
     }
 
+
     @DeleteMapping("/deleteAccount/{username}")
     public ResponseEntity<?> deleteAccount(@PathVariable("username") String username) {
         DeleteAccountResponse deleteAccountResponse = new DeleteAccountResponse();
-        try{
+        try {
             toDoListService.deleteToDoList(username);
             deleteAccountResponse.setMessage("All task deleted");
             return new ResponseEntity<>(new ApiResponse(true, deleteAccountResponse), HttpStatus.OK);
-        }catch (TodolistExceptions ex) {
+        } catch (TodolistExceptions ex) {
             return new ResponseEntity<>(new ApiResponse(false, deleteAccountResponse), HttpStatus.BAD_REQUEST);
         }
     }
