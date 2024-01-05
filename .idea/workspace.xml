@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="986777d3-1484-45df-8e6c-7e9f057df664" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Procfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/controller/TodoListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/controller/TodoListController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/service/ToDoListService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/service/ToDoListService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-    </list>
+    <list default="true" id="986777d3-1484-45df-8e6c-7e9f057df664" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -213,7 +206,7 @@
       <workItem from="1704389749776" duration="1604000" />
       <workItem from="1704397583175" duration="1763000" />
       <workItem from="1704445587016" duration="4642000" />
-      <workItem from="1704466689781" duration="3466000" />
+      <workItem from="1704466689781" duration="3851000" />
     </task>
     <servers />
   </component>
