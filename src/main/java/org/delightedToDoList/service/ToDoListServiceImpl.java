@@ -26,7 +26,8 @@ public class ToDoListServiceImpl implements ToDoListService {
 
     @Override
     public void register(RegisterRequest registerRequest) {
-        if (userExist(registerRequest.getUsername()))throw new UserExistExceptions(registerRequest.getUsername() + " already exist");
+        if (userExist(registerRequest.getUsername()))
+            throw new UserExistExceptions(registerRequest.getUsername() + " already exist");
         passwordChecker(registerRequest);
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedPassword = passwordEncoder.encode(registerRequest.getPassword());
@@ -36,8 +37,9 @@ public class ToDoListServiceImpl implements ToDoListService {
     }
 
     private static void passwordChecker(RegisterRequest registerRequest) {
-        String regex = "^(?=.*[0-9])"+"(?=.*[a-z])"+"(?=.*[A-Z])"+"(?=.*[@#$%^&-+=()])"+"(?=\\S+$).{8,20}$";
-        if(!Pattern.matches(regex, registerRequest.getPassword()))throw new PasswordTooWeakException("Password too weak");
+        String regex = "^(?=.*[0-9])" + "(?=.*[a-z])" + "(?=.*[A-Z])" + "(?=.*[@#$%^&-+=()])" + "(?=\\S+$).{8,20}$";
+        if (!Pattern.matches(regex, registerRequest.getPassword()))
+            throw new PasswordTooWeakException("Password too weak");
     }
 
     private boolean userExist(String username) {
@@ -48,7 +50,7 @@ public class ToDoListServiceImpl implements ToDoListService {
     @Override
     public TodoList login(LoginRequest loginRequest) {
         TodoList todoList = todoListRepository.findByUsername(loginRequest.getUsername());
-        validateUsernameAndPassword(loginRequest,todoList);
+        validateUsernameAndPassword(loginRequest, todoList);
         todoList.setLocked(false);
         todoListRepository.save(todoList);
         return todoList;
@@ -56,10 +58,11 @@ public class ToDoListServiceImpl implements ToDoListService {
     }
 
 
-    private void validateUsernameAndPassword(LoginRequest loginRequest,TodoList todoList) {
+    private void validateUsernameAndPassword(LoginRequest loginRequest, TodoList todoList) {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         if (!userExist(loginRequest.getUsername())) throw new InvalidDetailExceptions();
-        if (!passwordEncoder.matches(loginRequest.getPassword(), todoList.getPassword()))throw new InvalidDetailExceptions();
+        if (!passwordEncoder.matches(loginRequest.getPassword(), todoList.getPassword()))
+            throw new InvalidDetailExceptions();
 
     }
 
@@ -150,6 +153,7 @@ public class ToDoListServiceImpl implements ToDoListService {
 
     @Override
     public void deleteToDoList(String username) {
+        if (!userExist(username)) throw new UserDontExistException("User don't exist");
         TodoList todoList = findByUserName(username);
         todoListRepository.delete(todoList);
     }

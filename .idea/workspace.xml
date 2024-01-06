@@ -5,15 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="986777d3-1484-45df-8e6c-7e9f057df664" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/exceptions/UserDontExistException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/controller/TodoListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/controller/TodoListController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/data/repositories/TaskRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/data/repositories/TaskRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/service/ToDoListServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/delightedToDoList/service/ToDoListServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/delightedToDoList/service/TaskServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/delightedToDoList/service/TaskServiceImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/delightedToDoList/service/toDoService/ToDoListServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/delightedToDoList/service/toDoService/ToDoListServiceImplTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +29,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
@@ -216,7 +215,7 @@
       <workItem from="1704389749776" duration="1604000" />
       <workItem from="1704397583175" duration="1763000" />
       <workItem from="1704445587016" duration="4642000" />
-      <workItem from="1704466689781" duration="13301000" />
+      <workItem from="1704466689781" duration="18480000" />
     </task>
     <servers />
   </component>
